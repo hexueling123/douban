@@ -1,0 +1,32 @@
+<h1 class="page-header">{{title}}</h1>
+
+<!-- 每一条电影的信息 -->
+<div class="list-group">  
+  <a href="#" class="list-group-item" ng-repeat="item in subjects">
+    <span class="badge">{{item.rating.average}}</span>
+    <div class="media-left">
+      <img class="media-object" ng-src="{{item.images.small}}" alt="item.title" height="128">
+    </div>
+    <div class='media-left'>
+      <!-- <p>评分：{{item.rating.average}}</p> -->
+      <h4>{{item.title}}</h4>
+      <p>类型：{{item.genres.join('、')}}</p>
+      <p>导演：<span ng-repeat="a in item.directors">{{a.name}}{{$last?'':'、'}}</span></p>
+      <p>主演：<apan ng-repeat='b in item.casts'>{{b.name}}{{$last?'':'、'}}</span></p>  
+    </div>
+  </a>
+</div>
+<!-- 条数统计 -->
+  <div ng-show='!loading'>
+    <p>总共：{{totalCount}}条记录</p>
+  </div>
+<!-- 加载动画 -->
+<div class="mask" ng-show='loading'>
+  <div class="loading">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+  </div>
+</div>
